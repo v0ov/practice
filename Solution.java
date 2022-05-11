@@ -12,9 +12,17 @@ public class Solution {
 
         Map<String, Long> pMap = Arrays.asList(participant).stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        for (String key : pMap.keySet()){
-            String v = String.valueOf(pMap.get(key));
-            System.out.println(key + " : " + v);
+        for (String complete : completion){
+            Long val = pMap.get(complete) - 1;
+            pMap.put(complete, val);
         }
+
+        String retVal = "";
+        for (String nComp : pMap.keySet()){
+            if(pMap.get(nComp) > 0){
+                retVal = nComp;
+            }
+        }
+        System.out.println(retVal);
     }
 }
