@@ -1,6 +1,8 @@
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 
 public class Solution {
     public static void main(String[] args) {
@@ -8,11 +10,14 @@ public class Solution {
         String[] participant = new String[] {"mislav", "stanko", "mislav", "ana"};
         String[] completion = new String[] {"stanko", "ana", "mislav"};
 
-        List <String> plist = Arrays.asList(participant);
-        List clist = Arrays.asList(completion);
+        Map<String, Long> pMap = Arrays.asList(participant)
+                .stream()
+                .collect(
+                        Collectors.groupingBy
+                                (Function.identity(), Collectors.counting()
+                                )
+                );
 
-        Stream<String> stream = plist.stream();
-        stream.forEach(System.out::println);
 
     }
 }
