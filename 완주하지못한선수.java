@@ -11,7 +11,7 @@ public class Solution {
         String[] completion = new String[] {"stanko", "ana", "mislav"};
 
         Map<String, Long> pMap = Arrays.asList(participant).stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-        //찾아서 한부분
+        // 찾아서 한부분
         // 배열을 리스트로 받는법 asList
         // 스트림에서 그룹바이 하는 법 collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
         // 그룹바이 한것을 맵으로 받는 법
